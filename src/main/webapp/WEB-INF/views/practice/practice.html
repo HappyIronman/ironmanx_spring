@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style type="text/css">
+		#parent{
+			width: 1200px;
+			height: 200px;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background-color: cornflowerblue;
+		}
+		#child1,#child2{
+			/*background-color: burlywood;*/
+			width: 200px;
+			margin: 0 50px;
+			padding: 0 100px;
+			border: 50px solid green;
+			float: left;
+		}
+
+
+		#parentX {
+			padding: 100px;
+			width: 200px;
+			background-color: darkgray;
+		}
+		#childX {
+			/*z-index: ;*/
+			background-color: green;
+			padding: 20%;
+			margin: 5% 10%;
+			width: 50%;
+			height: 50%;
+			border: 10px solid rebeccapurple;
+		}
+	</style>
+</head>
+<body>
+<a id="pin">eee</a>
+<p draggable="true" contenteditable="true" dir="rtl" tabindex="2" class="a">hahaha</p>
+<p draggable="true" contenteditable="true" dir="rtl" tabindex="1" id="a"> hafehahafw </p>
+<p style="font-family:arial;color:red;font-size:20px;" title="SB">A paragraph.</p>
+<table border="1" cellpadding="10" cellspacing="5" bgcolor="#a9a9a9" width="400">
+	<caption style="color: brown">我的标题</caption>
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th colspan="2">Mother&Father</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td bgcolor="blue">Stark</td>
+		<td rowspan="2">
+			<p>Neither me</p>
+			<p>nor you</p>
+		</td>
+		<td align="right">Howard</td>
+	</tr>
+	<tr>
+		<td>Roges</td>
+		<td>&nbsp;</td>
+	</tr>
+	</tbody>
+	<!--<tfoot><tr/></tfoot>-->
+</table>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<a href="#pin">visit</a>
+<a href="#pin" target="_blank">visit</a>
+<script>
+    console.log(document.getElementById("a").innerText.trim())
+</script>
+
+<hr/>
+<div id="parent">
+	<div id="child1">
+		<p>111</p>
+	</div>
+	<div id="child2">
+		<p>222</p>
+	</div>
+</div>
+
+<!--<hr/>-->
+
+
+
+
+<div id="parentX">
+	<div id="childX">CCC</div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div id="footer" style=" position: relative; width: 500px; bottom: 50px; background-color: crimson">
+	<p style="margin: 0">footerABS</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--profile="dev"-->
+	<context:property-placeholder location="classpath:app.properties,classpath:database.properties"/>
+
+	<!--<bean name="setting" class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+	<!--<property name="locations">-->
+	<!--<array>-->
+	<!--<value>classpath:app.properties</value>-->
+	<!--</array>-->
+	<!--</property>-->
+	<!--<property name="fileEncoding" value="UTF-8" />-->
+	<!--</bean>-->
+
+
+	<bean class="com.ironman.config.Config"/>
+
+	<context:component-scan base-package="com.ironman.service,com.ironman.DAO"/>
+
+	<bean id="testBeanX" class="com.ironman.defaultBean.TestBean1"
+	      p:id="222">
+		<constructor-arg value="This is name"/>
+		<constructor-arg value="111"/>
+		<property name="name" value="${bean1.name}"/>
+		<property name="list">
+			<list>
+				<value>aa</value>
+				<value>bb</value>
+				<value>cc</value>
+			</list>
+		</property>
+		<property name="set">
+			<set>
+				<value>ss</value>
+				<value>ee</value>
+				<value>ss</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="key1" value="v1"/>
+				<entry key="key2" value="v2"/>
+				<entry key="key3" value="v3"/>
+			</map>
+		</property>
+	</bean>
+
+
+	<bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory"
+	      p:brokerURL="tcp://localhost:61616"
+	      p:trustAllPackages="true"/>
+
+	<bean id="queue" class="org.apache.activemq.command.ActiveMQQueue"
+	      c:_0="spittle.queue"/>
+
+	<bean id="topic" class="org.apache.activemq.command.ActiveMQTopic"
+	      c:_0="spittle.topic"/>
+
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" c:_0-ref="connectionFactory"
+	      p:defaultDestination-ref="queue"/>
+	<!--p:defaultDestinationName="spittle.alert.queue"-->
+
+
+
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+</beans>

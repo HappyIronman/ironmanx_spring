@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script>
+		function clickMe(var1) {
+		    var text="\"My first JS function\"";
+		    var arr=new Array();
+		    var textUpper=text.toUpperCase();
+		    arr[0]="fuck1";
+            arr[1]=2;
+            var str=new String;
+		    var person={
+				name:"zjw",
+			    age:12
+			};
+
+			document.getElementById("btn1").innerHTML=person.age+"\t"+var1;
+//			document.getElementById("btn1").innerHTML=document.getElementById("btn1").innerHTML+"<p>hahaha</p>";
+
+			document.getElementById("btn1").style.color="blue";
+			var x=8;
+//			alert(x == "8"); true
+			for(var i=0;i<arr.length;i++){
+//			    document.write(arr[i]);
+			}
+
+//			x-->KEY
+			for(x in arr){
+//			    alert(arr[x]);
+			}
+			for (x in person){
+//			    alert(x+":"+person[x])
+			}
+			//返回值可选
+        }
+	</script>
+</head>
+<body>
+<button id="btn1" type="button" onclick="clickMe('me1')">Click it</button>
+
+<div id="div1">
+<p id="p1">这是一个段落</p>
+<p id="p2">这是另一个段落</p>
+</div>
+
+<script>
+    var para=document.createElement("p");
+    var node=document.createTextNode("这是新段落。");
+    para.appendChild(node);
+
+    var element=document.getElementById("div1");
+    element.appendChild(para);
+</script>
+</body>
+</html>
